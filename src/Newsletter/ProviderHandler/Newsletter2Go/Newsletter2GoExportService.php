@@ -106,7 +106,6 @@ class Newsletter2GoExportService
             $response = $this->newsletter2GoRESTApi->curl($endpoint, $data, 'POST');
 
 
-
             //how the heck should we match to an id here? another req getting the data??
             //todo we need to check if it was successfull...
             foreach($items as $item) {
@@ -191,10 +190,11 @@ class Newsletter2GoExportService
         ];
 
         $response = $this->newsletter2GoRESTApi->curl($endpoint, $data, 'GET');
-
         if($response->status == 200) {
             return $response->value;
         }
+
+        return [];
     }
 
 
